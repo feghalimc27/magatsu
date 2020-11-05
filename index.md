@@ -1,37 +1,7 @@
-## Welcome to GitHub Pages
+## Project Calamity
 
-You can use the [editor on GitHub](https://github.com/feghalimc27/magatsu/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Project Calamity, or magatsu, is a work in progress light-based metroidvania. Magatsu is a platformer starring Lumina, the games protagonist, following her adventure to [REDATCED]. She weilds a blade, and must harness the luminence of her environment to accomplish her goal. 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Luminenece
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/feghalimc27/magatsu/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Luminence is a strong trait of Lumina, and will help her in determining her success in copleteing her goal. Luminence detrmines everything from the strength of her abilities to the intensity of her light, allowing her to increase her sight lines when locating the minions of the world of Calamity.
