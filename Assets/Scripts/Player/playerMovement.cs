@@ -5,12 +5,15 @@ using UnityEngine;
 public class playerMovement : MonoBehaviour {
 
     // Vertical Mobility
+    [Header("Vertical Mobility")]
     public float fullHopVelocity;
     public float doubleJumpVelocity;
     public float fallSpeed;
     public float gravity;
+    public float gravityDescentMultiplier;
 
     // Horizontal Mobility
+    [Header("Horizontal Mobility")]
     public float groundAcceleration;
     public float airAcceleration;
     public float maxRunSpeed;
@@ -86,8 +89,11 @@ public class playerMovement : MonoBehaviour {
     }
 
     void ApplyGravity() {
-        if (movementVector.y > -fallSpeed && !grounded) {
+        if (movementVector.y > -fallSpeed && movementVector.y > 0 && !grounded) {
             movementVector.y -= gravity;
+        }
+        else if (movementVector.y > -fallSpeed && movementVector.y <= 0 && !grounded) {
+            movementVector.y -= gravity * gravityDescentMultiplier;
         }
 
         if (movementVector.y < -fallSpeed && !grounded) {

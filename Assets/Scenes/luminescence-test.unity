@@ -152,6 +152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLight: 0
   maxLight: 40
+  minAngle: 15
+  maxAngle: 45
   currentLight: 0
   viewImage: {fileID: 0}
   cameraRef: {fileID: 519420031}
@@ -495,7 +497,7 @@ Light:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 40
-  m_SpotAngle: 45
+  m_SpotAngle: 15
   m_InnerSpotAngle: 9
   m_CookieSize: 10
   m_Shadows:
@@ -699,14 +701,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31758cc956972f34c944c26aa537c507, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shortHopVelocity: 0
-  fullHopVelocity: 12
-  doubleJumpVelocity: 12
-  fallSpeed: 8
-  gravity: 1.1
+  fullHopVelocity: 15
+  doubleJumpVelocity: 15
+  fallSpeed: 10
+  gravity: 1.4
+  gravityDescentMultiplier: 5
   groundAcceleration: 5
   airAcceleration: 4
-  minRunSpeed: 0
   maxRunSpeed: 12
   airSpeed: 9
   friction: 0.7

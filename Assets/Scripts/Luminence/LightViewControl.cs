@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class LightViewControl : MonoBehaviour {
 
+    [Header("Light Variables")]
     public float minLight;
     public float maxLight;
 
-    private float _minLight = 1;
-    private float _maxLight = 5;
+    private const float _minLight = 1;
+    private const float _maxLight = 5;
+
+    [Header("Angle Variables")]
+    public float minAngle;
+    public float maxAngle;
 
     [SerializeField]
     private float currentLight;
 
+
+    [Header("References")]
     public Texture2D viewImage;
 
     [SerializeField]
@@ -36,10 +43,15 @@ public class LightViewControl : MonoBehaviour {
         }
 
         spotLight.intensity = GetLightIntensity();
+        spotLight.spotAngle = GetLightAngle();
     }
 
     float GetLightIntensity() {
         return Mathf.Clamp(_maxLight * (currentLight / maxLight), _minLight, _maxLight);
+    }
+
+    float GetLightAngle() {
+        return Mathf.Clamp(maxAngle * (currentLight / maxLight), minAngle, maxAngle);
     }
 
     float GetCurrentBrightness() {
