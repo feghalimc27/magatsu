@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 public class LightViewControl : MonoBehaviour {
 
@@ -8,12 +9,12 @@ public class LightViewControl : MonoBehaviour {
     public float minLight;
     public float maxLight;
 
-    private const float _minLight = 1;
-    private const float _maxLight = 5;
+    private const float _minLight = 0.6f;
+    private const float _maxLight = 1;
 
     [Header("Angle Variables")]
-    public float minAngle;
-    public float maxAngle;
+    public float minAngle = 1;
+    public float maxAngle = 9;
 
     [SerializeField]
     private float currentLight;
@@ -25,7 +26,7 @@ public class LightViewControl : MonoBehaviour {
     [SerializeField]
     private Camera cameraRef;
     [SerializeField]
-    private Light spotLight;
+    private Light2D spotLight;
 
     // Update is called once per frame
     void Update() {
@@ -43,7 +44,7 @@ public class LightViewControl : MonoBehaviour {
         }
 
         spotLight.intensity = GetLightIntensity();
-        spotLight.spotAngle = GetLightAngle();
+        spotLight.pointLightOuterRadius = GetLightAngle();
     }
 
     float GetLightIntensity() {

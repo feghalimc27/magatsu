@@ -111,6 +111,10 @@ public class playerMovement : MonoBehaviour {
         rb.velocity = movementVector;
     }
 
+    public bool GetDirection() {
+        return direction;
+    }
+
     private void OnCollisionStay2D(Collision2D other) {
         if (other.gameObject.CompareTag("Ground")) {
             grounded = true;
