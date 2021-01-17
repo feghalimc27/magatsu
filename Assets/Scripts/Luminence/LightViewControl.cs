@@ -9,8 +9,8 @@ public class LightViewControl : MonoBehaviour {
     public float minLight;
     public float maxLight;
 
-    private const float _minLight = 0.6f;
-    private const float _maxLight = 1;
+    private const float _minLight = 0.4f;
+    private const float _maxLight = 1.5f;
 
     [Header("Angle Variables")]
     public float minAngle = 1;
@@ -27,6 +27,9 @@ public class LightViewControl : MonoBehaviour {
     private Camera cameraRef;
     [SerializeField]
     private Light2D spotLight;
+
+    [Header("Debug")]
+    public bool debug;
 
     // Update is called once per frame
     void Update() {
@@ -45,13 +48,33 @@ public class LightViewControl : MonoBehaviour {
 
         spotLight.intensity = GetLightIntensity();
         spotLight.pointLightOuterRadius = GetLightAngle();
+
+        if (debug) {
+            DebugDepadIncrementLighting();
+        }
+    }
+
+    void DebugDepadIncrementLighting() {
+        if (DirectionalPadInput.dpadRight) {
+            currentLight += 10;
+        }
+        else if (DirectionalPadInput.dpadLeft) {
+            currentLight -= 10;
+        }
     }
 
     float GetLightIntensity() {
+        if (_maxLight * (currentLight / maxLight) < _minLight) {
+            return  _minLight * (currentLight / maxLight) + _minLight;
+        }
+
         return Mathf.Clamp(_maxLight * (currentLight / maxLight), _minLight, _maxLight);
     }
 
     float GetLightAngle() {
+        if (maxAngle * (currentLight / maxLight) < minAngle) {
+            return  (currentLight / maxLight) + minAngle;
+        }
         return Mathf.Clamp(maxAngle * (currentLight / maxLight), minAngle, maxAngle);
     }
 
