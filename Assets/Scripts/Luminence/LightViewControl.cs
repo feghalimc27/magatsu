@@ -27,6 +27,8 @@ public class LightViewControl : MonoBehaviour {
     private Camera cameraRef;
     [SerializeField]
     private Light2D spotLight;
+    [SerializeField]
+    private Light2D playerEmissionLight;
 
     [Header("Debug")]
     public bool debug;
@@ -48,6 +50,7 @@ public class LightViewControl : MonoBehaviour {
 
         spotLight.intensity = GetLightIntensity();
         spotLight.pointLightOuterRadius = GetLightAngle();
+        playerEmissionLight.intensity = GetEmissionLightIntensiity();
 
         if (debug) {
             DebugDepadIncrementLighting();
@@ -61,6 +64,10 @@ public class LightViewControl : MonoBehaviour {
         else if (DirectionalPadInput.dpadLeft) {
             currentLight -= 10;
         }
+    }
+
+    float GetEmissionLightIntensiity() {
+        return Mathf.Clamp(_maxLight * (currentLight / maxLight), 0.6f, 1f);
     }
 
     float GetLightIntensity() {

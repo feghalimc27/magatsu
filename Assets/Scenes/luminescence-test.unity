@@ -153,12 +153,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minLight: 0
   maxLight: 100
-  minAngle: 3
-  maxAngle: 9
+  minAngle: 5
+  maxAngle: 15
   currentLight: 0
   viewImage: {fileID: 0}
   cameraRef: {fileID: 519420031}
   spotLight: {fileID: 1262473328}
+  playerEmissionLight: {fileID: 1980812862}
   debug: 1
 --- !u!4 &31217901
 Transform:
@@ -313,7 +314,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -500,7 +501,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &656458385
 GameObject:
@@ -714,6 +715,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1980812861}
+  - {fileID: 2091594344}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -797,7 +799,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1262473329}
   - component: {fileID: 1262473328}
-  - component: {fileID: 1262473330}
   m_Layer: 0
   m_Name: spotLight
   m_TagString: Untagged
@@ -830,10 +831,10 @@ MonoBehaviour:
   m_AlphaBlendOnOverlap: 0
   m_ShadowIntensity: 0
   m_ShadowVolumeIntensity: 0
-  m_PointLightInnerAngle: 360
-  m_PointLightOuterAngle: 360
+  m_PointLightInnerAngle: 70
+  m_PointLightOuterAngle: 120
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 3
+  m_PointLightOuterRadius: 5
   m_PointLightDistance: 3
   m_PointLightQuality: 1
   m_ShapeLightParametricSides: 5
@@ -853,28 +854,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1262473327}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1262473330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1262473327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9625efb6d5f32f749aceb87e55f256fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positionalOffset: {x: 0, y: 0}
-  framesToDelay: 10
-  playerReference: {fileID: 842967289}
+  m_Father: {fileID: 2091594344}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!1 &1980812860
 GameObject:
   m_ObjectHideFlags: 0
@@ -900,7 +886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1980812860}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.06, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 842967291}
@@ -940,10 +926,57 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 1
+  m_ShapeLightFalloffSize: 0
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  - {x: -0.53, y: -0.53, z: 0}
+  - {x: 0.53, y: -0.53, z: 0}
+  - {x: 0.53, y: 0.53, z: 0}
+  - {x: -0.53, y: 0.53, z: 0}
+--- !u!1 &2091594343
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2091594344}
+  - component: {fileID: 2091594345}
+  m_Layer: 0
+  m_Name: playerGuidanceTest
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2091594344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091594343}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1262473329}
+  m_Father: {fileID: 842967291}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2091594345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091594343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9625efb6d5f32f749aceb87e55f256fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positionalOffset: {x: -1.5, y: 0.5}
+  framesToDelay: 10
+  followReference: {fileID: 842967289}

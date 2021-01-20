@@ -9,16 +9,14 @@ public class LightPlayerFollow : MonoBehaviour {
 
     [Header("Technical Variables")]
     public int framesToDelay;
-    public GameObject playerReference;
+    public GameObject followReference;
     
     // Player and Direction may not be needed
-    private playerMovement player;
     private List<Vector3> positions;
     private bool direction;
 
     void Start() {
         // Use for getDirection to position light in direction of movement
-        player = playerReference.GetComponent<playerMovement>();
         positions = new List<Vector3>();
     }
 
@@ -30,7 +28,7 @@ public class LightPlayerFollow : MonoBehaviour {
 
     void DelayMovement() {
         if (positions.Count < framesToDelay) {
-            positions.Add(playerReference.transform.position);
+            positions.Add(followReference.transform.position);
         }
         else {
             gameObject.transform.position = positions[0] + new Vector3(positionalOffset.x, positionalOffset.y, 0);
@@ -38,9 +36,11 @@ public class LightPlayerFollow : MonoBehaviour {
         }
     }
 
+
+    // TODO: Change to rotate light up and down
     void UpdatePositionalOffset() {
         // Right stick to look around slightly
-        positionalOffset.x = Input.GetAxis("rHorizontal") / 2;
-        positionalOffset.y = -Input.GetAxis("rVertical") / 2;
+        //positionalOffset.x = Input.GetAxis("rHorizontal") / 2;
+        //positionalOffset.y = -Input.GetAxis("rVertical") / 2;
     }
 }
